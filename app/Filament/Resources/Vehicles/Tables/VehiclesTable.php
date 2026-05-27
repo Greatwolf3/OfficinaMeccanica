@@ -31,32 +31,39 @@ class VehiclesTable
             ->columns([
                 // Nome del cliente associato (relazione client -> name)
                 TextColumn::make('client.name')
+                    ->label(__('filament-resources.vehicle.table.client'))
                     ->searchable(),
 
                 // Marca del veicolo
                 TextColumn::make('brand')
+                    ->label(__('filament-resources.vehicle.table.brand'))
                     ->searchable(),
 
                 // Modello del veicolo
                 TextColumn::make('model')
+                    ->label(__('filament-resources.vehicle.table.model'))
                     ->searchable(),
 
                 // Anno di produzione
                 TextColumn::make('year')
+                    ->label(__('filament-resources.vehicle.table.year'))
                     ->searchable(),
 
                 // Targa del veicolo
                 TextColumn::make('license_plate')
+                    ->label(__('filament-resources.vehicle.table.license_plate'))
                     ->searchable(),
 
                 // Data di creazione (nascosta di default ma attivabile)
                 TextColumn::make('created_at')
+                    ->label(__('filament-resources.vehicle.table.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 // Data di ultimo aggiornamento (nascosta di default ma attivabile)
                 TextColumn::make('updated_at')
+                    ->label(__('filament-resources.vehicle.table.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

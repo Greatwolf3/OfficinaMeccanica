@@ -56,6 +56,28 @@
         .nav a.btn-primary:hover {
             background-color: #e5e7eb;
         }
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.2s;
+        }
+        .lang-switcher a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .lang-switcher a.active {
+            background-color: white;
+            color: #1e3a5f;
+            border-color: white;
+        }
         .hero {
             background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%);
             color: white;
@@ -234,10 +256,14 @@
                 <h1>OfficinaMeccanica</h1>
             </div>
             <nav class="nav">
+                <div class="lang-switcher">
+                    <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                    <a href="{{ route('language.switch', 'it') }}" class="{{ app()->getLocale() === 'it' ? 'active' : '' }}">IT</a>
+                </div>
                 @auth
-                    <a href="/admin">Dashboard</a>
+                    <a href="/admin">{{ __('welcome.dashboard') }}</a>
                 @else
-                    <a href="/admin/login">Accedi</a>
+                    <a href="/admin/login">{{ __('welcome.login') }}</a>
                 @endauth
             </nav>
         </div>
@@ -246,10 +272,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Sistema di Gestione Officina</h2>
-            <p>Gestisci clienti, veicoli e servizi in modo semplice ed efficiente. Tutto ciò che serve per la tua officina meccanica in un'unica piattaforma.</p>
+            <h2>{{ __('welcome.title') }}</h2>
+            <p>{{ __('welcome.subtitle') }}</p>
             @guest
-                <a href="/admin/login" class="btn">Inizia Ora</a>
+                <a href="/admin/login" class="btn">{{ __('welcome.get_started') }}</a>
             @endguest
         </div>
     </section>
@@ -257,22 +283,22 @@
     <!-- Features Section -->
     <section class="features">
         <div class="features-content">
-            <h3>Funzionalità Principali</h3>
+            <h3>{{ __('welcome.features.title') }}</h3>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon blue">👥</div>
-                    <h4>Gestione Clienti</h4>
-                    <p>Registra e gestisci tutti i tuoi clienti con informazioni complete: nome, telefono, email e indirizzo.</p>
+                    <h4>{{ __('welcome.features.clients.title') }}</h4>
+                    <p>{{ __('welcome.features.clients.description') }}</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon green">🚗</div>
-                    <h4>Gestione Veicoli</h4>
-                    <p>Traccia tutti i veicoli dei tuoi clienti: marca, modello, anno e targa. Collegati ai rispettivi proprietari.</p>
+                    <h4>{{ __('welcome.features.vehicles.title') }}</h4>
+                    <p>{{ __('welcome.features.vehicles.description') }}</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon orange">⚙️</div>
-                    <h4>Gestione Servizi</h4>
-                    <p>Registra tutti gli interventi effettuati: descrizione, costo e data. Monitora lo storico dei servizi per veicolo.</p>
+                    <h4>{{ __('welcome.features.services.title') }}</h4>
+                    <p>{{ __('welcome.features.services.description') }}</p>
                 </div>
             </div>
         </div>
@@ -281,28 +307,28 @@
     <!-- Dashboard Preview -->
     <section class="stats">
         <div class="stats-content">
-            <h3>Dashboard Intelligente</h3>
-            <p>Visualizza le statistiche della tua officina in tempo reale</p>
+            <h3>{{ __('welcome.dashboard.title') }}</h3>
+            <p>{{ __('welcome.dashboard.subtitle') }}</p>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="icon">👥</div>
                     <h4>Clienti</h4>
-                    <p>Gestione completa</p>
+                    <p>{{ __('welcome.dashboard.clients') }}</p>
                 </div>
                 <div class="stat-card">
                     <div class="icon">🚗</div>
                     <h4>Veicoli</h4>
-                    <p>Parco auto</p>
+                    <p>{{ __('welcome.dashboard.vehicles') }}</p>
                 </div>
                 <div class="stat-card">
                     <div class="icon">⚙️</div>
                     <h4>Servizi</h4>
-                    <p>Interventi</p>
+                    <p>{{ __('welcome.dashboard.services') }}</p>
                 </div>
                 <div class="stat-card">
                     <div class="icon">💰</div>
                     <h4>Ricavi</h4>
-                    <p>Analisi mensile</p>
+                    <p>{{ __('welcome.dashboard.revenue') }}</p>
                 </div>
             </div>
         </div>
@@ -311,17 +337,17 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="cta-content">
-            <h3>Pronto a gestire la tua officina?</h3>
-            <p>Inizia subito a utilizzare OfficinaMeccanica per ottimizzare il tuo lavoro.</p>
+            <h3>{{ __('welcome.cta.title') }}</h3>
+            <p>{{ __('welcome.cta.subtitle') }}</p>
             @guest
-                <a href="/admin/login" class="btn">Accedi al Pannello</a>
+                <a href="/admin/login" class="btn">{{ __('welcome.cta.button') }}</a>
             @endguest
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; {{ date('Y') }} OfficinaMeccanica. Sistema di gestione per officine meccaniche.</p>
+        <p>&copy; {{ date('Y') }} OfficinaMeccanica. {{ __('welcome.footer') }}</p>
     </footer>
 </body>
 </html>

@@ -8,31 +8,31 @@ use Filament\Schemas\Schema;
 class ClientForm
 {
     /**
-     * Configurazione del form Client.
+     * Configurazione form Client (multilingua)
      */
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
 
-                // Campo nome cliente
                 TextInput::make('name')
-                    ->required()// obbligatorio
+                    ->label(__('filament-resources.client.form.name'))
+                    ->required()
                     ->minLength(3),
-                // Campo telefono
+
                 TextInput::make('phone')
-                    ->tel() // input tipo telefono
+                    ->label(__('filament-resources.client.form.phone'))
+                    ->tel()
                     ->required(),
 
-                // Campo email
                 TextInput::make('email')
-                    ->label('Email address') // etichetta personalizzata
-                    ->email() // valida formato email
+                    ->label(__('filament-resources.client.form.email'))
+                    ->email()
                     ->required()
-                    ->unique(ignoreRecord: true), // email univoca, ignora record corrente in update
+                    ->unique(ignoreRecord: true),
 
-                // Campo indirizzo
                 TextInput::make('address')
+                    ->label(__('filament-resources.client.form.address'))
                     ->required(),
             ]);
     }

@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "craft-forge/filament-language-switcher": "^1.2",
         "filament/filament": "^5.6",
         "laravel/chisel": "^0.1.0",
         "laravel/fortify": "^1.37.2",
