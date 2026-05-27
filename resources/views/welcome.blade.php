@@ -245,6 +245,26 @@
         .footer p {
             color: #9ca3af;
         }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-items {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -255,16 +275,20 @@
                 <span style="font-size: 2.5rem;">🔧</span>
                 <h1>OfficinaMeccanica</h1>
             </div>
+
             <nav class="nav">
-                <div class="lang-switcher">
-                    <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
-                    <a href="{{ route('language.switch', 'it') }}" class="{{ app()->getLocale() === 'it' ? 'active' : '' }}">IT</a>
+                <div class="nav-items">
+                    <div class="lang-switcher">
+                        <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                        <a href="{{ route('language.switch', 'it') }}" class="{{ app()->getLocale() === 'it' ? 'active' : '' }}">IT</a>
+                    </div>
+
+                    @auth
+                        <a href="/admin">{{ __('welcome.dashboard') }}</a>
+                    @else
+                        <a href="/admin/login">{{ __('welcome.login') }}</a>
+                    @endauth
                 </div>
-                @auth
-                    <a href="/admin">{{ __('welcome.dashboard') }}</a>
-                @else
-                    <a href="/admin/login">{{ __('welcome.login') }}</a>
-                @endauth
             </nav>
         </div>
     </header>
