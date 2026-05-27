@@ -11,7 +11,7 @@ Sistema di gestione per officina meccanica.
 
 ## Installazione
 
-1. Clona il repository o scarica il progetto
+1. Clona il repository
 
 2. Installa le dipendenze PHP:
 ```bash
@@ -52,7 +52,7 @@ npm run build
 
 ### Server di sviluppo
 
-Avvia il server Laravel:
+Avvia il server Laravel in locale :
 ```bash
 php artisan serve
 ```
@@ -115,6 +115,10 @@ Il pannello admin include:
 - **SQLite**: Database
 - **Livewire 4**: Framework per interattività frontend
 - **TailwindCSS**: Styling
+
+
+
+
 
 ## Comandi utili
 
