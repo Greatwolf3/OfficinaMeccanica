@@ -100,6 +100,7 @@ return [
             'vehicle' => 'Vehicle',
             'cost' => 'Cost',
             'date' => 'Date',
+            'description'=>'Description',
             'created_at' => 'Created at',
             'updated_at' => 'Updated at',
         ],

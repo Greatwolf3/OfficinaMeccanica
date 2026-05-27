@@ -38,12 +38,18 @@ class ServicesTable
                 TextColumn::make('cost')
                     ->label(__('filament-resources.service.table.cost'))
                     ->money()
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
 
                 // Data del servizio
                 TextColumn::make('date')
                     ->label(__('filament-resources.service.table.date'))
                     ->date()
+                    ->sortable(),
+
+                TextColumn::make('description')
+                    ->label(__('filament-resources.service.table.description'))
+                    ->searchable()
                     ->sortable(),
 
                 // Data di creazione (nascosta di default)

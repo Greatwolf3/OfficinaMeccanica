@@ -72,6 +72,7 @@ return [
                     'description' => 'Descrizione',
                     'cost' => 'Costo',
                     'date' => 'Data',
+
                 ],
                 'table' => [
                     'description' => 'Descrizione',
@@ -98,6 +99,7 @@ return [
             'vehicle' => 'Veicolo',
             'cost' => 'Costo',
             'date' => 'Data',
+            'description'=>'Descrizione',
             'created_at' => 'Creato il',
             'updated_at' => 'Aggiornato il',
         ],
