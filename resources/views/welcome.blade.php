@@ -331,8 +331,8 @@
     <!-- Dashboard Preview -->
     <section class="stats">
         <div class="stats-content">
-            <h3>{{ __('welcome.dashboard.title') }}</h3>
-            <p>{{ __('welcome.dashboard.subtitle') }}</p>
+            <!--<h3>{{ __('welcome.dashboard.title') }}</h3>
+            <p>{{ __('welcome.dashboard.subtitle') }}</p> -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="icon">👥</div>
@@ -361,8 +361,8 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="cta-content">
-         <!--   <h3>{{ __('welcome.cta.title') }}</h3>
-            <p>{{ __('welcome.cta.subtitle') }}</p> -->
+            <h3>{{ __('welcome.cta.title') }}</h3>
+            <p>{{ __('welcome.cta.subtitle') }}</p>
             @guest
                 <a href="/admin/login" class="btn">{{ __('welcome.cta.button') }}</a>
             @endguest
